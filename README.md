@@ -125,9 +125,9 @@ Get the latest version from the **[Releases page](https://github.com/clawdroppin
 
 | File | Choose this if… |
 |---|---|
-| `Dune Server Manager_x.y.z_x64-setup.exe` | **Most people.** A normal installer with a Start-menu shortcut and an uninstaller. Settings are kept in `%APPDATA%\DuneServerManager`. |
+| `Dune.Server.Manager_x.y.z_x64-setup.exe` | **Most people.** A normal installer with a Start-menu shortcut and an uninstaller. Settings are kept in `%APPDATA%\DuneServerManager`. |
 | `DuneServerManager-x.y.z-Portable.zip` | You don't want to install anything. Extract it anywhere writable and run `Dune Server Manager.exe`. Everything stays in the `data` folder next to it. |
-| `Dune Server Manager_x.y.z_x64_en-US.msi` | You deploy software with Group Policy or Intune. |
+| `Dune.Server.Manager_x.y.z_x64_en-US.msi` | You deploy software with Group Policy or Intune. |
 
 > [!TIP]
 > Windows may show **"Windows protected your PC"** because the app isn't code-signed (signing certificates are expensive for a free hobby project). Click **More info → Run anyway**. You can check the download against the SHA-256 checksums published with every release.

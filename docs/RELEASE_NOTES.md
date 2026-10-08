@@ -6,9 +6,9 @@ A free desktop app for running **Dune: Awakening self-hosted servers** on Window
 
 | File | For |
 |---|---|
-| **`Dune Server Manager_…_x64-setup.exe`** | **Most people.** Normal installer. |
+| **`Dune.Server.Manager_…_x64-setup.exe`** | **Most people.** Normal installer. |
 | `DuneServerManager-…-Portable.zip` | No install. Extract and run. All data stays in the folder. |
-| `Dune Server Manager_…_x64_en-US.msi` | Deploying with Group Policy or Intune. |
+| `Dune.Server.Manager_…_x64_en-US.msi` | Deploying with Group Policy or Intune. |
 | `SHA256SUMS.txt` | Checksums to verify your download. |
 
 > Windows SmartScreen may warn that the app is unrecognised because it isn't code-signed. Click **More info → Run anyway**.
