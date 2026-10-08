@@ -1,0 +1,50 @@
+# Push a tag like v1.2.0 to build the installer, MSI and portable zip and
+# attach them (with SHA-256 checksums) to a draft GitHub Release.
+name: Release
+
+on:
+  push:
+    tags: ["v*"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: src-tauri
+      - run: npm ci
+      - name: Build installers and portable zip
+        run: npm run build:all
+      - name: Collect artifacts and checksums
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory -Force out | Out-Null
+          Copy-Item src-tauri/target/release/bundle/nsis/*.exe out/
+          Copy-Item src-tauri/target/release/bundle/msi/*.msi out/
+          Copy-Item release/*-Portable.zip out/
+          Get-ChildItem out -File | ForEach-Object {
+            "$((Get-FileHash $_.FullName -Algorithm SHA256).Hash.ToLower())  $($_.Name)"
+          } | Set-Content out/SHA256SUMS.txt -Encoding ascii
+          Get-Content out/SHA256SUMS.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: dune-server-manager
+          path: out/*
+      - name: Draft GitHub Release
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v2
+        with:
+          draft: true
+          files: out/*
+          body_path: docs/RELEASE_NOTES.md

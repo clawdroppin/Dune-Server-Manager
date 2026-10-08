@@ -1,0 +1,40 @@
+name: Setting discovery
+description: Share a working server setting (INI key) that the editor doesn't know yet
+labels: [setting]
+body:
+  - type: markdown
+    attributes:
+      value: Funcom has documented few settings, so community discoveries are gold. Thank you!
+  - type: dropdown
+    id: file
+    attributes:
+      label: File
+      options: [UserEngine.ini, UserGame.ini, UserServerCustomSettings.ini, Other]
+    validations:
+      required: true
+  - type: input
+    id: section
+    attributes:
+      label: Section
+      placeholder: "[/Script/DuneSandbox.DuneGameMode]"
+    validations:
+      required: true
+  - type: input
+    id: key
+    attributes:
+      label: Key and example value
+      placeholder: "m_GlobalXPMultiplier=2.0"
+    validations:
+      required: true
+  - type: textarea
+    id: effect
+    attributes:
+      label: What does it do?
+      description: Include the default, the values you tested and what you saw in game.
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: Source (optional)
+      description: Where you found it (patch notes, forum, own testing…)

@@ -1,0 +1,55 @@
+name: Bug report
+description: Something doesn't work as expected
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: Thanks for reporting! Please remove IP addresses, passwords, tokens and webhook URLs from anything you paste.
+  - type: input
+    id: version
+    attributes:
+      label: App version
+      description: Settings → About
+      placeholder: "1.1.0"
+    validations:
+      required: true
+  - type: dropdown
+    id: edition
+    attributes:
+      label: Edition
+      options: [Installer (.exe), Installer (.msi), Portable (.zip), Built from source]
+    validations:
+      required: true
+  - type: dropdown
+    id: server
+    attributes:
+      label: Server setup
+      options:
+        - Demo sandbox
+        - Hyper-V VM on this PC
+        - VM on another machine (Connect to running VM)
+    validations:
+      required: true
+  - type: input
+    id: build
+    attributes:
+      label: Dune server build
+      description: Shown on the server's Overview tab (optional)
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: What you did, what you expected, and what happened instead.
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Output or logs
+      description: From the Operations drawer, Automation log or Logs tab, if relevant.
+      render: text
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots
+      description: Drag images here.
