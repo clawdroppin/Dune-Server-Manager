@@ -225,7 +225,7 @@ Bug reports, setting discoveries and pull requests are very welcome. See **[CONT
 
 ## Credits
 
-Made by **Jakub**. It wouldn't exist without the Dune self-hosting community. See **[CREDITS.md](CREDITS.md)** for everyone whose research, tools and libraries made it possible.
+Made by *Claude**. It wouldn't exist without the Dune self-hosting community. See **[CREDITS.md](CREDITS.md)** for everyone whose research, tools and libraries made it possible.
 
 ## License
 
